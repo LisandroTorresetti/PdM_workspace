@@ -1,5 +1,8 @@
 #include "API_debounce.h"
-#include "main.h"
+#include "stm32f4xx_hal.h"
+
+#define B1_Pin GPIO_PIN_13
+#define B1_GPIO_Port GPIOC
 
 // debounceState_t represents the possible states of the button
 typedef enum{
