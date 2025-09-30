@@ -105,7 +105,7 @@ void uartSendString(uint8_t* pstring) {
  *
  */
 void uartSendStringSize(uint8_t* pstring, uint16_t size) {
-	if (pstring == NULL) {
+	if (pstring == NULL || size == 0) {
 		send_error_msg(INTERNAL_ERROR_MSG);
 		return;
 	}
@@ -122,13 +122,13 @@ void uartSendStringSize(uint8_t* pstring, uint16_t size) {
  * Reads exactly @p size bytes from UART into the given buffer.
  *
  * @param pstring  Pointer to the buffer where received data will be stored.
- * @param size     Number of bytes to receive.
+ * @param size     Number of bytes to receive, must be greater than 0.
  *
  * @note if a NULL pointer is received, an error message is sent
  *
  */
 void uartReceiveStringSize(uint8_t* pstring, uint16_t size) {
-	if (pstring == NULL) {
+	if (pstring == NULL || size == 0) {
 		send_error_msg(INTERNAL_ERROR_MSG);
 		return;
 	}
